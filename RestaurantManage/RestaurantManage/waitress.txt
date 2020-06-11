@@ -1,0 +1,9 @@
+Waitress Denis info:
+id: 0003127
+internship: 5
+Waitress Lana info:
+id: 0003127
+internship: 10
+Waitress Laka info:
+id: 0003123
+internship: 15

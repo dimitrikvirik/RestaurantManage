@@ -1,0 +1,11 @@
+Restaurant Pappa_Pizza
+Adress: Javaxishvili_10
+Owner's fixed salary: 5000
+Chef's fixed salary: 3000
+Waitress's fixed salary: 1000
+Owner's Percante from income: 60
+Income: 500000
+Tips: 3000
+Utility: 600
+Rent: 2500
+owner.txt chefs.txt waitress.txt
