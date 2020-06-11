@@ -89,7 +89,7 @@ std::istream& operator>>(std::istream& in, Restaurant& rest); //რესტო�
 std::ifstream& operator>>(std::ifstream& ifs, Restaurant& rest);//რეტორანი ფაილით
 //გამოტანა
 std::ostream& operator<<(std::ostream& out, Restaurant& rest);
-///***იმპლემენტაცია***//
+/***იმპლემენტაცია***///
 
 
 //კონსტრუქტორები//
@@ -190,6 +190,29 @@ inline void Restaurant::addEmploye(Employe& emp) {
 	}
 	UpdateSalary(); //ხელფასების განახლება
 }
+ //დამატება თანამშრომელის - ფაილის სახელთ
+inline  void Restaurant::addEmploye(const std::string& filename) {
+	 if (filename == "waitress.txt") {
+		 std::ifstream ifsn(filename);
+		 while (ifsn.peek() != EOF) {
+			 addEmploye(*(new Waitress(ifsn)));
+		 }
+	 }
+	 else if (filename == "chefs.txt") {
+		 std::ifstream ifsn(filename);
+
+		 while (ifsn.peek() != EOF) {
+			 addEmploye(*(new Chef(ifsn)));
+		 }
+	 }
+	 else if (filename == "owner.txt") {
+		 std::ifstream ifsn(filename);
+		 while (ifsn.peek() != EOF) {
+			 addEmploye(*(new Owner(ifsn)));
+		 }
+	 }
+
+ }
 //თანამშრომელის ამოშლა სიიდან პირადი ნომერით
 inline void Restaurant::removeById(const std::string& id) {
 	NodePtr ptr = 0;
@@ -230,7 +253,7 @@ inline void Restaurant::print(std::ostream& out) {
 
 	for (NodePtr ptr = FirstPtr; ptr != 0; ptr = ptr->next) {
 		if (ptr->emp->get_post() == 'O')
-			out << *ptr->emp;
+		out << *ptr->emp;
 	}
 	for (NodePtr ptr = FirstPtr; ptr != 0; ptr = ptr->next) {
 		if (ptr->emp->get_post() == 'C')

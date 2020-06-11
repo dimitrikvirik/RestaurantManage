@@ -89,10 +89,10 @@ public:
 	void  set_file(std::ifstream& ifs) override;
 };
 //**ოპერატორების გადატვირთვა**//
-//შეტანა//
+
 std::istream& operator>>(std::istream& in, Employe& emp); //თანამშრომელი
 std::ifstream& operator>>(std::ifstream& ifs, Employe& emp);
-//გამოტანა
+////გამოტანა
 std::ostream& operator<<(std::ostream& out, Employe& emp); //თანამშრომელი
 
 ///***იმპლემენტაცია***///
@@ -314,10 +314,7 @@ inline std::istream& operator>>(std::istream& in, Employe& emp) {
 	}
 	return in;
 }
-inline std::ifstream& operator>>(std::ifstream& ifs, Employe& emp) {
-	emp.set_file(ifs);
-	return ifs;
-}
+
 //გამოტანა
 inline std::ostream& operator<<(std::ostream& out, Employe& emp) {
 	emp.print(out);
